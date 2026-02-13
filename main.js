@@ -63,3 +63,22 @@ generateBtn.addEventListener('click', () => {
     lottoNumbersContainer.appendChild(ball);
   });
 });
+
+// --- MODAL LOGIC ---
+const modal = document.getElementById('contactModal');
+const openBtn = document.getElementById('contact-btn');
+const closeBtn = document.getElementsByClassName('close-btn')[0];
+
+openBtn.onclick = () => {
+  modal.style.display = 'block';
+}
+
+closeBtn.onclick = () => {
+  modal.style.display = 'none';
+}
+
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+}

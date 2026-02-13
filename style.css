@@ -6,6 +6,8 @@
   --button-text-color: white;
   --button-hover-background: #0056b3;
   --slider-background: #ccc;
+  --secondary-btn-bg: #6c757d;
+  --secondary-btn-hover-bg: #5a6268;
 }
 
 body.dark-mode {
@@ -15,6 +17,8 @@ body.dark-mode {
   --button-background: #0056b3;
   --button-hover-background: #003d80;
   --slider-background: #555;
+  --secondary-btn-bg: #5a6268;
+  --secondary-btn-hover-bg: #494f54;
 }
 
 body {
@@ -40,6 +44,10 @@ body {
 
 h1 {
   margin-bottom: 30px;
+}
+
+h2 {
+    margin-top: 0;
 }
 
 .lotto-numbers-container {
@@ -72,17 +80,29 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-right: 10px; /* Space between buttons */
 }
 
 #generate-btn:hover {
   background-color: var(--button-hover-background);
 }
 
-/* Form Styles */
-.form-container {
-  margin-top: 40px; /* Add some space between lotto and form */
+.secondary-btn {
+    background-color: var(--secondary-btn-bg);
+    color: var(--button-text-color);
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
+.secondary-btn:hover {
+    background-color: var(--secondary-btn-hover-bg);
+}
+
+/* Form Styles */
 .form-group {
   margin-bottom: 20px;
   text-align: left;
@@ -97,11 +117,11 @@ h1 {
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group textarea {
-  width: calc(100% - 20px); /* Account for padding */
+  width: calc(100% - 24px); /* Account for padding and border */
   padding: 10px;
   border: 1px solid var(--text-color); /* Use theme color for border */
   border-radius: 5px;
-  background-color: var(--container-background); /* Use container background */
+  background-color: var(--background-color); /* Use main bg for inputs */
   color: var(--text-color); /* Use theme text color */
   transition: border-color 0.3s, background-color 0.3s, color 0.3s;
 }
@@ -122,13 +142,60 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 100%; /* Make button full width */
-  box-sizing: border-box; /* Include padding in width */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .submit-btn:hover {
   background-color: var(--button-hover-background);
 }
+
+
+/* Modal Styles */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.6); 
+}
+
+.modal-content {
+  background-color: var(--container-background);
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; 
+  max-width: 500px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: animatetop 0.4s;
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 /* Theme Switcher */
 .theme-switch-container {
